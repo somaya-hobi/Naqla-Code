@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <title>VR Tours</title>
+</head>
+
+<body>
+    <main>
+        <h1>Houses</h1>
+        <div class="container" id="houseCardsContainer"></div>
+        <article class="add-house-form">
+            <h2>Add a New House</h2>
+            <form id="addHouseForm">
+                <div class="form-group">
+                    <label for="housename">House Name:</label><br>
+                    <input type="text" id="housename" name="housename" required>
+                </div>
+                <div class="form-group">
+                    <label for="houseaddress">Address:</label><br>
+                    <input type="text" id="houseaddress" name="houseaddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo:</label><br>
+                    <input type="text" id="Photo" name="photo" required>
+                </div>
+                <button type="submit" id="addHouse" name="addHouse_submit">Add House</button>
+            </form>
+        </article>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <!--<script src="../JS/House.js"></script>-->
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+            authDomain: "naqla-vr.firebaseapp.com",
+            databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+            projectId: "naqla-vr",
+            storageBucket: "naqla-vr.appspot.com",
+            messagingSenderId: "532930291336",
+            appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+            measurementId: "G-HH44E4L1W6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        addHouse.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            var housename = document.getElementById('housename').value;
+            var houseaddress = document.getElementById('houseaddress').value;
+            var photo = document.getElementById('Photo').value;
+
+            const newHouseRef = push(ref(database, 'Houses'));
+            set(newHouseRef, {
+                name: housename,
+                address: houseaddress,
+                photo: photo
+            }).then(() => {
+                alert('House added successfully!');
+            }).catch((error) => {
+                console.error('Error adding house: ', error);
+                alert('Error adding house: ' + error.message);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

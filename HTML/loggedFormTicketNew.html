@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest - Book VR Tour</title>
+    <link rel="stylesheet" href="../CSS/bookingTicketsCSS.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Inknut+Antiqua|Lora|Ravi+Prakash"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <!--Start header-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../HTML/Home.html"><img src="../Asset/NaqlaLogoSmall.png" alt="Naqla Logo"></a>
+            </div>
+            <div class="toggle">
+                <span class="first"></span>
+                <span class="middle"></span>
+                <span class="last"></span>
+            </div>
+            <div class="navigation-bar">
+                <ul>
+                    <li><a href="../HTML/Home.html">Home<span class="underline"></span></a></li>
+                    <li><a href="../HTML/VRTours.html">VRTours<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Cities.html">Cities<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Events.html">Events<span class="underline"></span></a></li>
+                    <li><a href="../HTML/About.html">About<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Contact.html">Contact<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Sign In.html">LogIn<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Sign Up.html">Register<span class="underline"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="text">
+            <br /><br /><br /><br />
+            <h1>VR Tours</h1>
+            <div class="arrow">
+                <span class="left"></span>
+                <i class="fas fa-asterisk"></i>
+                <span class="right"></span>
+            </div>
+            <span>Let's Discover Two Thousand Years Of Human History & Culture</span>
+        </div>
+    </header>
+    <!--End header-->
+    <br /><br /><br /><br />
+    <!--Booking ticket form-->
+    <form id="bookingForm">
+        <h1 style="color: black;">Booking Ticket</h1>
+        <legend><span class="number">1</span>Your info</legend>
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="user_email">
+
+        <legend><span class="number">2</span>Select what you want to explore</legend>
+        <label for="job">VR Tours</label>
+        <select id="ticket" name="user_job">
+            <optgroup label="Historical Jeddah Houses">
+                <option value="-NwycjQ29I2J7QgC8eHP">Beit Alsharbatly</option>
+            </optgroup>
+        </select>
+
+        <button type="submit" id="bookticket" name="bookTicket_submit">Book Ticket</button>
+    </form>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+            authDomain: "naqla-vr.firebaseapp.com",
+            databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+            projectId: "naqla-vr",
+            storageBucket: "naqla-vr.appspot.com",
+            messagingSenderId: "532930291336",
+            appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+            measurementId: "G-HH44E4L1W6"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Function to search for user ID based on email
+        function searchUserID(email) {
+            return database.ref('users').orderByChild('email').equalTo(email).once('value')
+                .then(function (snapshot) {
+                    var userId;
+                    snapshot.forEach(function (childSnapshot) {
+                        userId = childSnapshot.key;
+                    });
+                    return userId;
+                });
+        }
+
+        // Function to add user ID to ticket node
+        function addUserToTicket(ticketId, userId) {
+            return database.ref('Tickets/' + ticketId + '/users').push(userId);
+        }
+
+        // Event listener for form submission
+        document.getElementById('bookingForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get user email and selected option
+            var userEmail = document.getElementById('mail').value;
+            var selectedOption = document.getElementById('ticket').value;
+
+            // Search for user ID based on email
+            searchUserID(userEmail)
+                .then(function (userId) {
+                    if (userId) {
+                        // Add user ID to the ticket node
+                        addUserToTicket(selectedOption, userId)
+                            .then(function () {
+                                alert('Ticket booked successfully!');
+                                // You can redirect the user to another page or perform other actions here
+                            })
+                            .catch(function (error) {
+                                console.error('Error adding user to ticket:', error);
+                            });
+                    } else {
+                        alert('User not found!');
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Error searching for user ID:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

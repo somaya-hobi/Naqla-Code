@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest - Book VR Tour</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="../Asset/NaqlaLogo .png">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro" rel="stylesheet">
+    <!--Fonts-->
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="../CSS/bookingTicketsCSS.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Inknut+Antiqua|Lora|Ravi+Prakash"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <!--Start header-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../HTML/Home.html"><img src="../Asset/NaqlaLogoSmall.png" alt="Naqla Logo"></a>
+            </div>
+            <div class="toggle">
+                <span class="first"></span>
+                <span class="middle"></span>
+                <span class="last"></span>
+            </div>
+            <div class="navigation-bar">
+                <ul>
+                    <li><a href="../HTML/Home.html">Home<span class="underline"></span></a></li>
+                    <li class="active"><a href="../HTML/VRTours.html">VRTours<span class="underline"></span></a></li>
+                    <li><a href="../HTML/eventsNew.html">Events<span class="underline"></span></a></li>
+                    <li><a href="../HTML/About.html">About<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Contact.html">Contact<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Sign In.html">LogIn<span class="underline"></span></a></li>
+                    <li><a href="../HTML/Sign Up.html">Register<span class="underline"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="text">
+            <br /><br /><br /><br />
+            <h1>VR Tours</h1>
+            <div class="arrow">
+                <span class="left"></span>
+                <i class="fas fa-asterisk"></i>
+                <span class="right"></span>
+            </div>
+            <span>Let's Discover Two Thousand Years Of Human History & Culture</span>
+        </div>
+    </header>
+    <!--End header-->
+    <br /><br /><br /><br />
+    <!--Modal -->
+    <div id="confirmationModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Confirmation Booking</p>
+            <p>Make sure to take a screenshot to save your ticket and show it when visiting us.</p>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+    <!--Booking ticket form-->
+    <form id="bookingForm">
+        <h1 style="color: black;">Booking Ticket</h1>
+        <legend><span class="number">1</span>Your info</legend>
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" name="user_email">
+
+        <legend><span class="number">2</span>Select what you want to explore</legend>
+        <label for="job">VR Tours</label>
+        <select id="ticket" name="user_job">
+            <optgroup label="Historical Jeddah Houses">
+                <option value="-NwycjQ29I2J7QgC8eHP" id="Beit-Alsharbatly">Beit Alsharbatly</option>
+            </optgroup>
+        </select>
+
+        <button type="submit" id="bookticket" name="bookTicket_submit">Book Ticket</button>
+    </form>
+    <br/><br/><br/><br/>
+    <!--Start Footer-->
+    <footer>
+        <div class="text">
+            <h2>ABOUT NAQLA</h2>
+            <div><i class="fas fa-asterisk"></i></div>
+            <p>Naqla is dedicated to preserving and promoting the rich history and heritage of Saudi Arabia through
+                immersive virtual reality. Our mission is to provide innovative solutions that bring the past to life
+                and educate future generations about the kingdom's cultural legacy.</p>
+        </div>
+        <div class="contact-container">
+            <div class="social-media">
+                <h3>Follow Along</h3>
+                <div class="links">
+                    <a href="https://twitter.com/naqlavr"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/naqlavr?igsh=MTNmNDlnd3N2MmZ6eA%3D%3D&utm_source=qr"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer-->
+
+    <!--Start Copy-Right-->
+    <div class="copyright">
+        <svg class="svg-up" width="192" height="61" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve">
+            <path fill="#262526"
+                d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z">
+            </path>
+        </svg>
+        <i class="fas fa-angle-double-up arrow-up"></i>
+        <ul class="info">
+            <li>&copy; NAQLA 2024</li>
+            <li>Jeddah, Saudi Arabia</li>
+            <li>Tel: 0561017673</li>
+            <li>Handcrafted with love by <a href="#">NAQLA</a> Team</li>
+        </ul>
+        <ul class="CTA">
+            <li><a href="../HTML/Contact.html">CONTACT THE TEAM</a></li>
+        </ul>
+    </div>
+    <!--End Copy-Right-->
+    <!-- Add your site or application content here -->
+    <script src="../JS/HomeJS.js"></script>
+    <script src="../JS/HomeJS.min.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getDatabase, ref, push, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+            authDomain: "naqla-vr.firebaseapp.com",
+            databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+            projectId: "naqla-vr",
+            storageBucket: "naqla-vr.appspot.com",
+            messagingSenderId: "532930291336",
+            appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+            measurementId: "G-HH44E4L1W6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const mail = document.getElementById('mail').value;
+            const ticketId = document.getElementById('ticket').value; // Store ticket ID as foreign key
+            const confirmationModal = document.getElementById('confirmationModal');
+            const confirmationMessageElement = document.getElementById('confirmationMessage');
+
+            try {
+                // Search for user ID using email
+                const usersRef = ref(database, 'users');
+                const snapshot = await get(usersRef);
+
+                snapshot.forEach((childSnapshot) => {
+                    const userData = childSnapshot.val();
+                    if (userData.email === mail) {
+                        const userId = childSnapshot.key;
+
+                        // Check if ticket ID exists before creating a ticket
+                        const ticketRef = ref(database, 'Tickets/' + ticketId);
+                        get(ticketRef).then((ticketSnapshot) => {
+                            if (ticketSnapshot.exists()) {
+                                // Create a new database named bookedTickets
+                                const newTicketRef = push(ref(database, 'bookedTickets'));
+                                set(newTicketRef, {
+                                    ticketId: ticketId, // Store ticket ID as foreign key
+                                    userId: userId // Store user ID
+                                }).then(() => {
+                                    // Retrieve the newly generated key from the bookedTickets database
+                                    const newTicketKey = newTicketRef.key;
+
+                                    const ticketData = ticketSnapshot.val();
+                                    const confirmationMessage = `Name: ${name}\n
+                                    Email: ${mail}\n
+                                    Month: ${ticketData.ticketMonth}\n
+                                    Day: ${ticketData.ticketDay}\n
+                                    Time: ${ticketData.ticketTime}\n
+                                    Ticket Key: ${newTicketKey}`; // Include the new ticket key in the confirmation message
+                                    confirmationMessageElement.textContent = confirmationMessage;
+                                    confirmationModal.style.display = 'block';
+                                    //alert('Ticket booked successfully!');
+                                }).catch((error) => {
+                                    console.error('Error booking ticket: ', error);
+                                    alert('Error booking ticket: ' + error.message);
+                                });
+                            } else {
+                                alert('Invalid TICKET ID. Please enter a valid ID.');
+                            }
+                        }).catch((error) => {
+                            console.error('Error checking ticket: ', error);
+                            alert('An error occurred');
+                        });
+                    }
+                });
+            } catch (error) {
+                console.error('Error searching for user: ', error);
+                alert('An error occurred');
+            }
+        });
+        // Close the modal when the user clicks on <span> (x)
+        document.querySelector('.close').addEventListener('click', () => {
+            confirmationModal.style.display = 'none';
+        });
+
+        // Close the modal when the user clicks anywhere outside of the modal
+        window.addEventListener('click', (event) => {
+            if (event.target === confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

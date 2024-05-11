@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Form</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="../Asset/NaqlaLogo .png">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro" rel="stylesheet">
+    <!--Fonts-->
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="../CSS/ContactCSS.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--Start Header-->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../HTML/Home.html"><img src="../Asset/NaqlaLogoSmall.png" alt="Naqla Logo"></a>
+            </div>
+            <div class="toggle">
+                <span class="first"></span>
+                <span class="middle"></span>
+                <span class="last"></span>
+            </div>
+            <div class="navigation-bar">
+                <ul>
+                    <li><a href="../HTML/Home.html">Home<span class="underline"></span></a></li>
+                    <li><a href="../HTML/VRTours.html">VRTours<span class="underline"></span></a></li>
+                    <li><a href="../HTML/eventsNew.html">Events<span class="underline"></span></a></li>
+                    <li><a href="../HTML/About.html">About<span class="underline"></span></a></li>
+                    <li class="active"><a href="../HTML/Contact.html">Contact<span class="underline"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--End Header-->
+    <div>
+        <div class="alert">Your message sent</div>
+        <div class="container">
+            <div class="contact-parent">
+                <div class="contact-child child1">
+                </div>
+
+                <div class="contact-child child2">
+                    <form class="inside-contact" id="contactForm">
+
+                        <h2>Contact Us</h2>
+                        <h3>
+                            <span id="confirm">
+                        </h3>
+
+                        <p>Name *</p>
+                        <input id="txt_name" type="text" Required="required">
+
+                        <p>Email *</p>
+                        <input id="txt_email" type="text" Required="required">
+
+
+                        <p>Message *</p>
+                        <textarea id="txt_message" rows="4" cols="20" Required="required"></textarea>
+
+                        <input type="submit" id="btn_send" value="SEND">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Start Footer-->
+    <footer>
+        <div class="text">
+            <h2>ABOUT NAQLA</h2>
+            <div><i class="fas fa-asterisk"></i></div>
+            <p>Naqla is dedicated to preserving and promoting the rich history and heritage of Saudi Arabia through
+                immersive virtual reality. Our mission is to provide innovative solutions that bring the past to life
+                and educate future generations about the kingdom's cultural legacy.</p>
+        </div>
+        <div class="contact-container">
+            <div class="social-media">
+                <h3>Follow Along</h3>
+                <div class="links">
+                    <a href="https://twitter.com/naqlavr"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/naqlavr?igsh=MTNmNDlnd3N2MmZ6eA%3D%3D&utm_source=qr"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer-->
+
+    <!--Start Copy-Right-->
+    <div class="copyright">
+        <svg class="svg-up" width="192" height="61" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve">
+            <path fill="#262526"
+                d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z">
+            </path>
+        </svg>
+        <i class="fas fa-angle-double-up arrow-up"></i>
+        <ul class="info">
+            <li>&copy; NAQLA 2024</li>
+            <li>Jeddah, Saudi Arabia</li>
+            <li>Tel: 0561017673</li>
+            <li>Handcrafted with love by <a href="#">NAQLA</a> Team</li>
+        </ul>
+        <ul class="CTA">
+            <li><a href="../HTML/Contact.html">CONTACT THE TEAM</a></li>
+        </ul>
+    </div>
+    <!--End Copy-Right-->
+    <!-- Add your site or application content here -->
+    <script src="../JS/HomeJS.js"></script>
+    <script src="../JS/HomeJS.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../JS/ContactJS.js"></script>
+
+</body>
+<!-- Add Firebase SDK -->
+
+</html>

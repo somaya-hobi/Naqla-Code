@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="../Asset/NaqlaLogo .png">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro" rel="stylesheet">
+    <!--Fonts-->
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!--FontAwesome--> <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="../Asset/NaqlaLogo .png">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro" rel="stylesheet">
+    <!--Fonts-->
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="../css/signInCSS.css">
+</head>
+
+<body>
+    <div class="container container--static">
+        <div class="info-box left">
+            <h2 class="heading">Don't have an account?</h2>
+            <p class="info-text">Naqla preserves and promotes Saudi Arabia's heritage through immersive virtual reality,
+                educating future generations about its cultural legacy.</p>
+            <a href="../HTML/Sign Up.html"><button class="button button--signup">Sign up</button></a>
+        </div>
+    </div>
+    <div class="container container--sliding">
+        <div class="slider-content login">
+            <h2 class="heading alt">Log In</h2>
+            <form id="loginForm">
+                <input type="email" id="email" name="email" title="Please enter a valid email address."
+                    placeholder="Email">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <br /><br />
+                <input class="button alt" type="submit" id="login" name="signup_submit" value="Sign in" />
+                <p style="font-size: 13px;"><a href="../HTML/loggedFormTicket.html">See My Tickets</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+            authDomain: "naqla-vr.firebaseapp.com",
+            databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+            projectId: "naqla-vr",
+            storageBucket: "naqla-vr.appspot.com",
+            messagingSenderId: "532930291336",
+            appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+            measurementId: "G-HH44E4L1W6"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        login.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default form submission
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('Login successful!');
+                    // Redirect to another page or perform further actions
+                    window.location.href = '../HTML/Home.html';
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+    </script>
+</body>
+
+</html>

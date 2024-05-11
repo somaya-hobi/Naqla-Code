@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="../css/SignUpCSS.css">
+
+</head>
+
+<body>
+  <div class="container container--static">
+    <div class="info-box left">
+      <h2 class="heading">Have an account?</h2>
+      <p class="info-text">Naqla preserves and promotes Saudi Arabia's heritage through immersive virtual reality, 
+        educating future generations about its cultural legacy.</p>
+      <a href="../HTML/Sign In.html"><button class="button button--signup">Log In</button></a>
+    </div>
+  </div>
+  <div class="container container--sliding">
+    <div class="slider-content login">
+      <h2 class="heading alt">Sign Up</h2>
+
+      <form id="signupForm">
+        <input type="text" id="username" name="username" placeholder="Full Name" required>
+        <input type="email" id="email" name="email" title="Please enter a valid email address." placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
+        <br/><br/>
+        <input class="button alt" type="submit" id="signup" name="signup_submit" value="Sign up" />
+
+        <p style="font-size: 13px;"><a href="../HTML/loggedFormTicket.html"><i class="bi bi-ticket-detailed"></i> Continue Booking My Ticket</a></p>
+      </form>
+      
+    </div>
+  </div>
+
+  <script src="../JS/HeaderFooterJS.js"></script>
+  <script src="../JS/ConnectDB.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+      authDomain: "naqla-vr.firebaseapp.com",
+      databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+      projectId: "naqla-vr",
+      storageBucket: "naqla-vr.appspot.com",
+      messagingSenderId: "532930291336",
+      appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+      measurementId: "G-HH44E4L1W6"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    signup.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var username = document.getElementById('username').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+
+          // Store additional user information in the database
+          set(ref(database, 'users/' + user.uid), {
+            username: username,
+            email: email,
+            phoneNumber: phoneNumber
+          }).then(() => {
+            alert('Signed Up successfully!');
+
+          }).catch((error) => {
+            alert(error.message);
+          });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+    });
+  </script>
+
+</body>
+
+</html>

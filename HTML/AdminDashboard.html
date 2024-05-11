@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Houses</h1>
+        <div class="container" id="houseCardsContainer"></div>
+        <article class="add-house-form show">
+            <h2>Add a New House</h2>
+            <form id="addHouseForm">
+                <div class="form-group">
+                    <label for="housename">House Name:</label><br>
+                    <input type="text" id="housename" name="housename" required>
+                </div>
+                <div class="form-group">
+                    <label for="houseaddress">Address:</label><br>
+                    <input type="text" id="houseaddress" name="houseaddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo:</label><br>
+                    <input type="text" id="Photo" name="photo" required>
+                </div>
+                <button type="submit" id="addHouse" name="addHouse_submit">Add House</button>
+            </form>
+        </article>
+    </main>
+
+    <main>
+        <h1>Add Tickets</h1>
+        <div class="container" id="ticketCardsContainer"></div>
+        <article class="add-house-form show">
+            <h2>Enter the information</h2>
+            <form id="bookTicketForm">
+                <div class="form-group">
+                    <label for="houseId">House ID:</label><br>
+                    <input type="text" id="houseId" name="houseId" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label><br>
+                    <input type="text" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="day">Day:</label><br>
+                    <input type="text" id="day" name="day" required>
+                </div>
+                <div class="form-group">
+                    <label for="month">Month:</label><br>
+                    <input type="text" id="month" name="month" required>
+                </div>
+                <div class="form-group">
+                    <label for="count">Number of Tickets:</label><br>
+                    <input type="text" id="count" name="count" required>
+                </div>
+                <button type="submit" id="addTicket" name="bookTicket_submit">Add Ticket</button>
+            </form>
+        </article>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+    <script src="../JS/Ticket.js"></script>
+    <script src="../JS/House.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAb-YVnmlKhe4NUAhGInLIPnBPepEjpLu8",
+            authDomain: "naqla-vr.firebaseapp.com",
+            databaseURL: "https://naqla-vr-default-rtdb.firebaseio.com",
+            projectId: "naqla-vr",
+            storageBucket: "naqla-vr.appspot.com",
+            messagingSenderId: "532930291336",
+            appId: "1:532930291336:web:a8fed45ec0fdeed728613d",
+            measurementId: "G-HH44E4L1W6"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Firebase authentication
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in, check if the email is admin email
+                if (user.email === "admin@gmail.com") {
+                    // Allow access to the page
+                    document.querySelectorAll('.show').forEach(element => {
+                        element.classList.remove('hide');
+                    });
+                } else {
+                    // Redirect user to unauthorized page or display an error message
+                    window.location.replace("../HTML/Home.html");
+                }
+            } else {
+                // No user is signed in, redirect to login page
+                window.location.replace("../HTML/Sign In.html");
+            }
+        });
+    </script>
+</body>
+
+</html>

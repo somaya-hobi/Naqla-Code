@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.ticket {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.ticket-header p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.ticket-info .attendee-info {
+    display: flex;
+    align-items: center;
+}
+
+.ticket-info .attendee-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.ticket-info .attendee-info .attendee-details p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.ticket-info .attendee-info .attendee-details p:first-child {
+    font-weight: bold;
+}

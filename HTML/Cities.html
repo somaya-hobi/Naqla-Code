@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        
+        .cities {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .city {
+            width: 300px;
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0  , 0.1);
+        }
+        
+        .city img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .city-info {
+            padding: 20px;
+        }
+        
+        .city-info h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .city-info p {
+            margin-bottom: 20px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #E1B168;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Our future projects</h1>
+            <h5>Discover the world with easy access</h5>
+        </div>
+        <div class="cities">
+            <div class="city">
+                <img src= "../Asset/Makkah.jpeg" alt="City 1">
+                <div class="city-info">
+                    <h2>Makkah</h2>
+                    <p>Makkah is the holiest city for Muslims, with the Grand Mosque and the Kaaba, which is the qibla for Muslims in their prayers. It is located in the west of the Kingdom of Saudi Arabia.</p>
+                    <a href="#" class="cta-btn">Read more</a>
+                </div>
+            </div>
+            <div class="city">
+                <img src="../Asset/Al-Masmak.jpeg" alt="City 2">
+                <div class="city-info">
+                    <h2>Al-Masmak</h2>
+                    <p>Al-Masmak Palace, a fortress built of mud bricks, is located in the center of the Saudi capital, Riyadh. The real name of the palace is Al-Masmak Palace due to the thickness of its floors and side walls.</p>
+                    <a href="#" class="cta-btn">Read more</a>
+                </div>
+            </div>
+
+            <div class="city">
+                <img src= "../Asset/Aseer.jpg" alt="City 3">
+                <div class="city-info">
+                    <h2>Aseer</h2>
+                    <p>The Aseer region is one of the regions of the Kingdom of Saudi Arabia and is located in the southwest of it. Its capital and the headquarters of the emirate are the city of Abha.</p>
+                    <a href="#" class="cta-btn">Read more</a>
+                </div>
+            </div>
+
+            <!-- Note for me, I can add more cities in here -->
+
+        </div>
+    </div>
+</body>
+</html>
